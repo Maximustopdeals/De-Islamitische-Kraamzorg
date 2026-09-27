@@ -28,7 +28,9 @@ const gevondenOpties = [
  * Mislukte verzending valt terug op WhatsApp met alle velden vooraf ingevuld.
  */
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "ok">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">(
+    "idle"
+  );
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -81,6 +83,7 @@ export default function ContactForm() {
         : "",
       `Gevonden via: ${data.get("gevonden_via")}`,
     ].filter(Boolean);
+
     window.open(
       `${site.whatsapp}?text=${encodeURIComponent(regels.join("\n"))}`,
       "_blank",
@@ -90,7 +93,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit} noValidate={false}>
       <div className="form__row">
         <div className="field">
           <label htmlFor="voornaam_meisjesnaam">
@@ -162,7 +165,6 @@ export default function ContactForm() {
             name="uitgerekende_datum"
             type="date"
             required
-            placeholder="dd-mm-jjjj"
           />
         </div>
         <div className="field">
@@ -248,9 +250,9 @@ export default function ContactForm() {
       <input
         type="text"
         name="website"
+        className="honeypot"
         tabIndex={-1}
         autoComplete="off"
-        style={{ position: "absolute", left: "-9999px" }}
         aria-hidden="true"
       />
 
@@ -261,10 +263,19 @@ export default function ContactForm() {
       <p className="form__privacy">
         Uw gegevens worden altijd vertrouwelijk behandeld.
       </p>
+
+      {/* Statusmeldingen */}
       {status === "ok" && (
-        <p className="form__status ok" role="status">
+        <p className="form__status ok" role="status" aria-live="polite">
           Dank u wel! Uw aanvraag is verstuurd. Wij nemen zo snel mogelijk
           contact met u op.
+        </p>
+      )}
+
+      {status === "error" && (
+        <p className="form__status error" role="alert" aria-live="assertive">
+          Er ging iets mis bij het versturen. Probeer het opnieuw of neem
+          contact op via WhatsApp.
         </p>
       )}
     </form>
