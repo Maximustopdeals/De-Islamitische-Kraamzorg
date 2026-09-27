@@ -404,6 +404,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.25rem; }
+.hero__actions--center { justify-content: center; }
 
 .hero__media { position: relative; }
 
@@ -471,10 +472,11 @@ img { max-width: 100%; height: auto; display: block; }
 .grid { display: grid; gap: 1.5rem; }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--1 { grid-template-columns: minmax(0, 32rem); justify-content: center; }
 .grid--spaced { margin-top: 1.5rem; }
 
 @media (max-width: 900px) { .grid--3 { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 620px) { .grid--3, .grid--2 { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .grid--3, .grid--2, .grid--1 { grid-template-columns: 1fr; } }
 
 .card {
   background: var(--white);
@@ -880,10 +882,24 @@ img { max-width: 100%; height: auto; display: block; }
 .form__privacy { font-size: 0.82rem; color: var(--muted); margin-top: 0.9rem; }
 .form__status { margin-top: 1rem; font-size: 0.95rem; }
 .form__status.ok { color: var(--sage-deep); }
+.form__status.error { color: #b23b3b; }
+
+/* ---------- Honeypot (spam-preventie) ---------- */
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
 
 /* ---------- Reviews ---------- */
 
 .stars { color: var(--terracotta); font-size: 1.25rem; letter-spacing: 0.3em; }
+.stars--spaced { margin-block: 1.25rem; }
 
 /* ---------- Footer ---------- */
 
@@ -1270,10 +1286,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 .section--no-top {
   padding-top: 0;
-}
-
-.stars--spaced {
-  margin-block: 1.25rem;
 }
 
 .redirect-page {
