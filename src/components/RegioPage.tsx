@@ -22,7 +22,13 @@ export interface ContentSection {
   variant?: "default" | "steps";
 }
 
-const defaultUsps = [
+export interface USP {
+  icon: ReactNode;
+  title: string;
+  text: string;
+}
+
+const defaultUsps: USP[] = [
   {
     icon: <IconMoon />,
     title: "Afgestemd op islamitische waarden",
@@ -40,6 +46,22 @@ const defaultUsps = [
   },
 ];
 
+interface RegioPageProps {
+  label: string;
+  title: ReactNode;
+  intro: string;
+  cardsTitle: ReactNode;
+  cardsIntro?: string;
+  cards: RegioCard[];
+  usps?: USP[];
+  sections?: ContentSection[];
+  sectionsKicker?: string;
+  sectionsTitle?: ReactNode;
+  flexTitle?: string;
+  ctaTitle: string;
+  ctaText: string;
+}
+
 export default function RegioPage({
   label,
   title,
@@ -54,34 +76,33 @@ export default function RegioPage({
   flexTitle,
   ctaTitle,
   ctaText,
-}: {
-  label: string;
-  title: ReactNode;
-  intro: string;
-  cardsTitle: ReactNode;
-  cardsIntro?: string;
-  cards: RegioCard[];
-  usps?: typeof defaultUsps;
-  sections?: ContentSection[];
-  sectionsKicker?: string;
-  sectionsTitle?: ReactNode;
-  flexTitle?: string;
-  ctaTitle: string;
-  ctaText: string;
-}) {
+}: RegioPageProps) {
+  // Bepaal de grid-klasse op basis van het aantal cards
+  const gridClass =
+    cards.length === 1
+      ? "grid grid--1"
+      : cards.length === 2
+        ? "grid grid--2"
+        : "grid grid--3";
+
   return (
     <>
+      {/* Hero */}
       <section className="hero">
-        <div className="container" style={{ maxWidth: "62rem", textAlign: "center" }}>
+        <div className="container container--narrow text-center">
           <Reveal>
             <span className="label label--center">{label}</span>
             <h1>{title}</h1>
-            <p className="lead" style={{ marginInline: "auto" }}>{intro}</p>
-            <div className="hero__actions" style={{ justifyContent: "center" }}>
+            <p className="lead lead--center">{intro}</p>
+            <div className="hero__actions hero__actions--center">
               <Link href="/contact" className="btn">
                 Meld je nu aan
               </Link>
-              <a href={site.phoneLink} className="btn btn--outline">
+              <a
+                href={site.phoneLink}
+                className="btn btn--outline"
+                aria-label={`Bel ${site.phone}`}
+              >
                 Bel direct: {site.phone}
               </a>
             </div>
@@ -90,25 +111,21 @@ export default function RegioPage({
         <Ornament />
       </section>
 
-      <section className="section" style={{ paddingTop: "2rem" }}>
+      {/* Werkgebied cards */}
+      <section className="section section--compact-top">
         <div className="container">
           <div className="section__head">
             <span className="label">Werkgebied</span>
             <h2>{cardsTitle}</h2>
             {cardsIntro && <p>{cardsIntro}</p>}
           </div>
-          <div
-            className={`grid ${cards.length === 3 ? "grid--3" : "grid--2"}`}
-            style={
-              cards.length === 1
-                ? { gridTemplateColumns: "minmax(0, 32rem)", justifyContent: "center" }
-                : undefined
-            }
-          >
+          <div className={gridClass}>
             {cards.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.1}>
                 <div className="region-card">
-                  {c.count && <span className="region-card__count">{c.count}</span>}
+                  {c.count && (
+                    <span className="region-card__count">{c.count}</span>
+                  )}
                   <h3>{c.title}</h3>
                   <p>{c.text}</p>
                   <ul>
@@ -123,6 +140,7 @@ export default function RegioPage({
         </div>
       </section>
 
+      {/* USPs */}
       <section className="section section--alt">
         <div className="container">
           <div className="grid grid--3">
@@ -149,6 +167,7 @@ export default function RegioPage({
 
       <CTABanner title={ctaTitle} text={ctaText} />
 
+      {/* Content sections */}
       {sections.length > 0 && (
         <div className="regio-sections">
           {sectionsTitle && (
@@ -180,7 +199,10 @@ export default function RegioPage({
                           <ol className="regio-steps">
                             {s.bullets.map((b, j) => (
                               <li key={b}>
-                                <span className="regio-steps__num" aria-hidden="true">
+                                <span
+                                  className="regio-steps__num"
+                                  aria-hidden="true"
+                                >
                                   {j + 1}
                                 </span>
                                 <span>{b}</span>
