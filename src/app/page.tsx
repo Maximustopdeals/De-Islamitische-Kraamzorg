@@ -86,16 +86,13 @@ export default function Home() {
 
           <Reveal delay={0.15} className="hero__media">
             <div className="frame">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/trotse-moeder-baby.webp"
-                srcSet="/images/trotse-moeder-baby-480.webp 480w, /images/trotse-moeder-baby-768.webp 768w, /images/trotse-moeder-baby-1152.webp 1152w, /images/trotse-moeder-baby.webp 1536w"
-                sizes="(max-width: 900px) 100vw, 45vw"
                 alt="Trotse moeder met haar pasgeboren baby"
                 width={1536}
                 height={1024}
-                fetchPriority="high"
-                decoding="async"
+                sizes="(max-width: 900px) 100vw, 45vw"
+                priority
               />
             </div>
             <div className="hero__badge">
@@ -108,12 +105,12 @@ export default function Home() {
       </section>
 
       {/* Intro */}
-      <section className="section">
+      <section className="section" id="welkom">
         <div className="container">
           <div className="split">
             <Reveal>
               <span className="label">Welkom</span>
-              <h2 style={{ margin: "1rem 0 1.25rem" }}>
+              <h2 className="section__title">
                 Liefdevolle islamitische kraamzorg in Utrecht, afgestemd op uw
                 geloof
               </h2>
@@ -141,7 +138,7 @@ export default function Home() {
                   in harmonie met uw geloof.
                 </p>
               </div>
-              <div style={{ marginTop: "2rem" }}>
+              <div className="section__actions">
                 <Link href="/contact" className="btn">
                   Vrijblijvend kennismakingsgesprek
                 </Link>
@@ -178,7 +175,7 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <div style={{ textAlign: "center", marginTop: "3rem" }}>
+          <div className="section__actions center">
             <Link href="/contact" className="btn btn--outline">
               Plan een vrijblijvende kennismaking
             </Link>
@@ -189,7 +186,7 @@ export default function Home() {
       <TrustBar />
 
       {/* Werkgebieden */}
-      <section className="section">
+      <section className="section" id="werkgebied">
         <div className="container">
           <div className="section__head">
             <span className="label">Werkgebied</span>
@@ -218,7 +215,7 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <div style={{ marginTop: "2.5rem" }}>
+          <div className="section__actions">
             <Link href="/utrecht" className="btn btn--outline">
               Bekijk alle plaatsen in Utrecht →
             </Link>
