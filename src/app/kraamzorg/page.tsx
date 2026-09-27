@@ -95,21 +95,22 @@ export default function Kraamzorg() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
+      {/* Hero */}
       <section className="hero">
-        <div className="container" style={{ maxWidth: "62rem", textAlign: "center" }}>
+        <div className="container container--narrow text-center">
           <Reveal>
             <span className="label label--center">Utrecht &amp; omstreken</span>
             <h1>
               Islamitische <span className="accent">kraamzorg</span>: een
               onbezorgde en gezegende kraamtijd
             </h1>
-            <p className="lead" style={{ marginInline: "auto" }}>
+            <p className="lead lead--center">
               Professionele en liefdevolle begeleiding tijdens de belangrijkste
               eerste week van jouw baby. Wij bieden zorg op maat met volledig
               respect voor jouw islamitische geloofsovertuiging. Dag en nacht
               staan we klaar voor de gezondheid van moeder en kind.
             </p>
-            <div className="hero__actions" style={{ justifyContent: "center" }}>
+            <div className="hero__actions hero__actions--center">
               <Link href="/contact" className="btn">
                 Vrijblijvend kennismaken
               </Link>
@@ -122,7 +123,8 @@ export default function Kraamzorg() {
         <Ornament />
       </section>
 
-      <section className="section">
+      {/* Intro */}
+      <section className="section" id="intro">
         <div className="container">
           <div className="split">
             <Reveal className="split__media split__media--arch">
@@ -136,7 +138,9 @@ export default function Kraamzorg() {
             </Reveal>
             <Reveal delay={0.15}>
               <span className="label">Intro</span>
-              <h2 style={{ margin: "1rem 0 1.25rem" }}>Wat mijn islamitische kraamzorg voor jou betekent</h2>
+              <h2 className="section__title">
+                Wat mijn islamitische kraamzorg voor jou betekent
+              </h2>
               <div className="prose">
                 <p>
                   Ik ben Nadia, je eigen kraamverzorgende in Utrecht. Geen
@@ -154,6 +158,7 @@ export default function Kraamzorg() {
         </div>
       </section>
 
+      {/* Kernpunten */}
       <section className="section section--alt">
         <div className="container">
           <div className="section__head center">
@@ -178,13 +183,14 @@ export default function Kraamzorg() {
         </div>
       </section>
 
-      <section className="section">
+      {/* Stappen */}
+      <section className="section" id="werkwijze">
         <div className="container">
           <div className="section__head center">
             <span className="label label--center">Hoe het werkt</span>
             <h2>In drie stappen naar een zorgeloze kraamtijd</h2>
           </div>
-          <div className="steps" style={{ marginInline: "auto" }}>
+          <div className="steps steps--center">
             {stappen.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.1}>
                 <div className="step">
@@ -200,7 +206,8 @@ export default function Kraamzorg() {
         </div>
       </section>
 
-      <section className="section section--alt">
+      {/* Prijzen */}
+      <section className="section section--alt" id="kosten">
         <div className="container">
           <div className="section__head center">
             <span className="label label--center">Wat kost het?</span>
@@ -215,19 +222,28 @@ export default function Kraamzorg() {
             <Reveal>
               <div className="price-card">
                 <strong>Basisverzekering</strong>
-                <p>Vergoed uit basisverzekering. Geen eigen risico. De verzekering dekt de kern van de kraamzorg.</p>
+                <p>
+                  Vergoed uit basisverzekering. Geen eigen risico. De
+                  verzekering dekt de kern van de kraamzorg.
+                </p>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
               <div className="price-card">
                 <strong>€5,70 / uur</strong>
-                <p>Een kleine eigen bijdrage voor zorg thuis. Aanvullende verzekering kan dit dekken.</p>
+                <p>
+                  Een kleine eigen bijdrage voor zorg thuis. Aanvullende
+                  verzekering kan dit dekken.
+                </p>
               </div>
             </Reveal>
             <Reveal delay={0.2}>
               <div className="price-card">
                 <strong>Persoonlijk advies</strong>
-                <p>Vragen? Ik help je graag. Ik kijk samen met je naar jouw situatie en verzekering.</p>
+                <p>
+                  Vragen? Ik help je graag. Ik kijk samen met je naar jouw
+                  situatie en verzekering.
+                </p>
               </div>
             </Reveal>
           </div>
@@ -243,14 +259,16 @@ export default function Kraamzorg() {
 
       <TrustBar />
 
+      {/* Quote */}
       <section className="section">
         <div className="container">
           <Reveal>
             <div className="quote">
               <div className="stars" aria-label="Vijf sterren">★★★★★</div>
-              <p style={{ marginTop: "1.25rem" }}>
-                “Hele fijne kraamtijd gehad met Nadia. Ze is professioneel,
-                vriendelijk, zorgzaam en liefdevol met je baby.”
+              <p className="quote__text">
+                &ldquo;Hele fijne kraamtijd gehad met Nadia. Ze is
+                professioneel, vriendelijk, zorgzaam en liefdevol met je
+                baby.&rdquo;
               </p>
               <footer>Firdaouss uit Utrecht</footer>
             </div>
@@ -258,7 +276,8 @@ export default function Kraamzorg() {
         </div>
       </section>
 
-      <section className="section section--alt">
+      {/* FAQ */}
+      <section className="section section--alt" id="faq">
         <div className="container">
           <div className="section__head center">
             <span className="label label--center">Veelgestelde vragen</span>
