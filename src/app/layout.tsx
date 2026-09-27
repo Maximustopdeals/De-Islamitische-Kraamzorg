@@ -33,12 +33,35 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "nl_NL",
     type: "website",
+    title: "Islamitische kraamzorg Utrecht | Kraamzorg op maat, 24/7",
+    description:
+      "Islamitische kraamzorg in Utrecht, Zeist, Nieuwegein, Houten en Gorinchem. Liefdevolle kraamzorg afgestemd op uw geloof. 24/7 bereikbaar.",
+    url: site.url,
+    images: [
+      {
+        url: "/images/trotse-moeder-baby.webp",
+        width: 1536,
+        height: 1024,
+        alt: "Trotse moeder met haar pasgeboren baby",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Islamitische kraamzorg Utrecht | Kraamzorg op maat, 24/7",
+    description:
+      "Islamitische kraamzorg in Utrecht, Zeist, Nieuwegein, Houten en Gorinchem. Liefdevolle kraamzorg afgestemd op uw geloof.",
+    images: ["/images/trotse-moeder-baby.webp"],
   },
   robots: { index: true, follow: true },
   verification: {
     google: "G4xXTFzHfHpDXup5YT4xUhJTtXx5-tKeZplUiVPF0Ts",
   },
-  icons: { icon: "/images/logo.webp", apple: "/images/logo.webp" },
+  icons: {
+    icon: "/images/logo.webp",
+    shortcut: "/images/logo.webp",
+    apple: "/images/logo.webp",
+  },
 };
 
 const localBusiness = {
@@ -79,11 +102,11 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`no-js ${playfair.variable} ${inter.variable}`}>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.remove('no-js')`,
-          }}
-        />
+        {/* Verwijder no-js class zodra JS beschikbaar is */}
+        <Script id="remove-no-js" strategy="beforeInteractive">
+          {`document.documentElement.classList.remove('no-js')`}
+        </Script>
+
         {/* Google Tag Manager */}
         <Script id="gtm" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -92,6 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KJ76485D');`}
         </Script>
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MJ79FGGLFK"
@@ -112,14 +136,18 @@ gtag('config', 'G-MJ79FGGLFK');`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
           />
         </noscript>
+
+        {/* Structured Data: LocalBusiness */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
         />
+
         <Header />
-        <main>{children}</main>
+        <main id="main">{children}</main>
         <Footer />
         <StickyCTA />
         <WhatsAppWidget />
