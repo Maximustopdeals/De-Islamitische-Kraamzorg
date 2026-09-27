@@ -1,19 +1,45 @@
 import Link from "next/link";
+import Image from "next/image";
 import { nav, site } from "@/lib/site";
 import { IconFacebook } from "@/components/Icons";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const regions =
-    nav.find((i) => i.children)?.children ?? [];
+  const regions = nav.find((i) => i.children)?.children ?? [];
+
+  // Structured data voor de footer (Organization)
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: site.name,
+    url: site.url,
+    logo: `${site.url}/images/logo.webp`,
+    email: site.email,
+    telephone: site.phoneIntl,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: site.location,
+      addressCountry: "NL",
+    },
+    sameAs: [site.facebook],
+    identifier: [
+      { "@type": "PropertyValue", name: "KvK", value: site.kvk },
+      { "@type": "PropertyValue", name: "KCKZ", value: site.kckz },
+      { "@type": "PropertyValue", name: "AGB", value: site.agb },
+    ],
+  };
 
   return (
     <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__brand">
           <Link href="/" className="brand">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.webp" alt="" width={44} height={44} />
+            <Image
+              src="/images/logo.webp"
+              alt="Logo De Islamitische Kraamzorg"
+              width={44}
+              height={44}
+            />
             <span>De Islamitische Kraamzorg</span>
           </Link>
           <p>
@@ -70,13 +96,25 @@ export default function Footer() {
           <h4>Contact</h4>
           <ul>
             <li>
-              <a href={site.phoneLink}>{site.phone}</a>
+              <a href={site.phoneLink} aria-label={`Bel ${site.phone}`}>
+                {site.phone}
+              </a>
             </li>
             <li>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <a
+                href={`mailto:${site.email}`}
+                aria-label={`E-mail naar ${site.email}`}
+              >
+                {site.email}
+              </a>
             </li>
             <li>
-              <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
+              <a
+                href={site.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Stuur een WhatsApp bericht"
+              >
                 WhatsApp {site.phone}
               </a>
             </li>
@@ -89,9 +127,7 @@ export default function Footer() {
         <span>
           © {year} {site.name}. Alle rechten voorbehouden.
         </span>
-        <span>
-          KvK {site.kvk} · KCKZ {site.kckz} · KIWA-gecertificeerd
-        </span>
+        <span>KIWA-gecertificeerd</span>
         <span>
           Webdesign door{" "}
           <a
@@ -103,6 +139,12 @@ export default function Footer() {
           </a>
         </span>
       </div>
+
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
     </footer>
   );
 }
