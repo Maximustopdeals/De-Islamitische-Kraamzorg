@@ -462,11 +462,16 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 3rem;
 }
 
+.section__subtext {
+  margin-top: 0.8rem;
+}
+
 /* ---------- Kaarten ---------- */
 
 .grid { display: grid; gap: 1.5rem; }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--spaced { margin-top: 1.5rem; }
 
 @media (max-width: 900px) { .grid--3 { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 620px) { .grid--3, .grid--2 { grid-template-columns: 1fr; } }
@@ -553,6 +558,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ---------- Stappen ---------- */
 
 .steps { counter-reset: step; display: grid; gap: 0; max-width: 46rem; }
+.steps--center { margin-inline: auto; }
 .step {
   display: grid;
   grid-template-columns: 4.5rem 1fr;
@@ -570,6 +576,12 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .step h3 { margin-bottom: 0.35rem; }
 .step p { font-size: 0.97rem; }
+
+/* Compacte variant (geen border-bottom, kleinere padding) */
+.step--compact {
+  border-bottom: 0;
+  padding: 1.2rem 0;
+}
 
 /* ---------- Split ---------- */
 
@@ -593,6 +605,29 @@ img { max-width: 100%; height: auto; display: block; }
   font-style: italic;
 }
 .quote footer { margin-top: 1.4rem; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+/* Uitgebreide varianten */
+.quote--spaced {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.quote--left {
+  text-align: left;
+  margin: 0;
+}
+
+.quote__text {
+  margin-top: 1.25rem;
+}
+
+.quote__text--small {
+  font-size: 1.2rem;
+}
+
+.quote__footer--left {
+  text-align: left;
+  margin-top: 0.9rem;
+}
 
 /* ---------- CTA ---------- */
 
@@ -670,34 +705,103 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.95rem;
 }
 
+.note--flat {
+  margin: 0;
+}
+
 /* ---------- Contact ---------- */
 
 .contact-grid { display: grid; grid-template-columns: 1fr; gap: clamp(2.5rem, 6vw, 4rem); align-items: start; max-width: 62rem; margin-inline: auto; }
 
 .contact-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 @media (max-width: 700px) { .contact-methods { grid-template-columns: 1fr; } }
+
 .contact-method {
   display: flex;
-  gap: 1.1rem;
+  gap: 1rem;
   align-items: center;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 1.3rem 1.5rem;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  padding: 1.2rem 1.3rem;
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+  min-width: 0;
 }
-.contact-method:hover { transform: translateY(-3px); box-shadow: 0 24px 45px -30px rgba(33, 28, 21, 0.3); }
+
+.contact-method:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 45px -30px rgba(33, 28, 21, 0.3);
+  border-color: var(--terracotta);
+}
+
 .contact-method__icon {
-  width: 2.9rem; height: 2.9rem; flex-shrink: 0;
-  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background: var(--cream-deep);
   color: var(--terracotta-deep);
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
 }
-.contact-method__icon svg { width: 1.35rem; height: 1.35rem; }
-.contact-method span { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
-.contact-method strong { display: block; font-size: 1.05rem; color: var(--ink); letter-spacing: normal; word-break: break-word; }
-.contact-method__email { font-size: 0.98rem; font-family: var(--font-sans); font-weight: 600; text-transform: none; }
+
+.contact-method:hover .contact-method__icon {
+  background: var(--terracotta);
+  color: var(--white);
+}
+
+.contact-method__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+/* Body: label + waarde */
+.contact-method__body {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.contact-method__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.contact-method__value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: normal;
+  transition: color 0.3s var(--ease-out);
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.contact-method:hover .contact-method__value {
+  color: var(--terracotta-deep);
+}
+
+/* E-mail specifiek: kleiner lettertype zodat het op 1 regel past */
+.contact-method__value--email {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* Extra klein op zeer smalle schermen */
+@media (max-width: 400px) {
+  .contact-method__value--email {
+    font-size: 0.82rem;
+  }
+}
 
 .contact-side {
   display: grid;
@@ -1121,6 +1225,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ---------- Diversen ---------- */
 
 .lead { font-size: clamp(1.08rem, 1.5vw, 1.22rem); }
+.lead--center { margin-inline: auto; }
 .prose p + p { margin-top: 1.1rem; }
 .prose { max-width: 44rem; }
 
@@ -1143,4 +1248,35 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--sage-deep);
   flex-shrink: 0;
   transform: translateY(-1px);
+}
+
+/* ---------- Extra utility classes (contact, reviews, redirect) ---------- */
+
+.container--narrow {
+  max-width: 62rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hero--compact {
+  padding-bottom: 2rem;
+}
+
+.section--compact-top {
+  padding-top: 2rem;
+}
+
+.section--no-top {
+  padding-top: 0;
+}
+
+.stars--spaced {
+  margin-block: 1.25rem;
+}
+
+.redirect-page {
+  padding-top: 12rem;
+  text-align: center;
 }
