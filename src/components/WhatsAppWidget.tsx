@@ -1,29 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { site } from "@/lib/site";
 
 /** Zwevende WhatsApp-knop met chatvenster (naar voorbeeld van Marley's Kraamzorg). */
 export default function WhatsAppWidget() {
   const [open, setOpen] = useState(false);
+  const popupRef = useRef<HTMLDivElement>(null);
+
+  // Sluit popup bij Escape-toets
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
+  // Sluit popup bij klik buiten de popup
+  useEffect(() => {
+    if (!open) return;
+
+    const onClickOutside = (e: MouseEvent) => {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(e.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, [open]);
 
   return (
     <div className="wa-widget">
       {open && (
-        <div className="wa-popup" role="dialog" aria-label="WhatsApp chat">
+        <div
+          ref={popupRef}
+          className="wa-popup"
+          role="dialog"
+          aria-label="WhatsApp chat"
+          aria-modal="false"
+        >
           <div className="wa-popup__header">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.webp" alt="" className="wa-popup__avatar" />
+            <Image
+              src="/images/logo.webp"
+              alt="Logo De Islamitische Kraamzorg"
+              width={42}
+              height={42}
+              className="wa-popup__avatar"
+            />
             <div className="wa-popup__title">
               <strong>De Islamitische Kraamzorg</strong>
               <span>
-                <i className="wa-popup__dot" aria-hidden="true" /> Online
+                <span className="wa-popup__dot" aria-hidden="true" /> Online
               </span>
             </div>
             <button
               className="wa-popup__close"
               aria-label="Chat sluiten"
               onClick={() => setOpen(false)}
+              type="button"
             >
               ×
             </button>
@@ -51,9 +92,17 @@ export default function WhatsAppWidget() {
         aria-label={open ? "WhatsApp chat sluiten" : "WhatsApp chat openen"}
         aria-expanded={open}
         onClick={() => setOpen(!open)}
+        type="button"
       >
         {open ? (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
             <path d="M6 6l12 12M18 6 6 18" />
           </svg>
         ) : (
