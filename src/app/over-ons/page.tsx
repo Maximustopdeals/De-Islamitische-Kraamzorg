@@ -49,14 +49,15 @@ const werkwijze = [
 export default function OverOns() {
   return (
     <>
+      {/* Hero */}
       <section className="hero">
-        <div className="container" style={{ maxWidth: "62rem", textAlign: "center" }}>
+        <div className="container container--narrow text-center">
           <Reveal>
             <span className="label label--center">Utrecht &amp; omstreken</span>
             <h1>
               Ontmoet <span className="accent">Nadia</span>
             </h1>
-            <p className="lead" style={{ marginInline: "auto" }}>
+            <p className="lead lead--center">
               Jouw vertrouwde kraamverzorgster in Utrecht. Met liefdevolle
               aandacht, rust en diep respect voor islamitische waarden begeleid
               ik gezinnen tijdens de bijzondere kraamtijd in Utrecht en
@@ -67,7 +68,8 @@ export default function OverOns() {
         <Ornament />
       </section>
 
-      <section className="section">
+      {/* Wie ik ben */}
+      <section className="section" id="wie-ik-ben">
         <div className="container">
           <div className="split">
             <Reveal className="split__media split__media--arch">
@@ -81,7 +83,7 @@ export default function OverOns() {
             </Reveal>
             <Reveal delay={0.15}>
               <span className="label">Wie ik ben</span>
-              <h2 style={{ margin: "1rem 0 1.25rem" }}>
+              <h2 className="section__title">
                 Gecertificeerd kraamverzorgende met 5+ jaar ervaring
               </h2>
               <div className="prose">
@@ -103,14 +105,18 @@ export default function OverOns() {
           </div>
 
           <Reveal>
-            <div className="quote" style={{ marginTop: "clamp(3.5rem, 7vw, 5.5rem)" }}>
-              <p>“Zorg begint met aandacht. En aandacht begint met luisteren.”</p>
+            <div className="quote quote--spaced">
+              <p className="quote__text">
+                &ldquo;Zorg begint met aandacht. En aandacht begint met
+                luisteren.&rdquo;
+              </p>
               <footer>Nadia, kraamverzorgende in Utrecht</footer>
             </div>
           </Reveal>
         </div>
       </section>
 
+      {/* Missie & visie */}
       <section className="section section--alt">
         <div className="container">
           <div className="grid grid--3">
@@ -152,7 +158,7 @@ export default function OverOns() {
             </Reveal>
           </div>
 
-          <div className="grid grid--2" style={{ marginTop: "1.5rem" }}>
+          <div className="grid grid--2 grid--spaced">
             <Reveal>
               <div className="card card--sage">
                 <span className="card__icon"><IconShield /></span>
@@ -179,7 +185,8 @@ export default function OverOns() {
         </div>
       </section>
 
-      <section className="section">
+      {/* Werkwijze */}
+      <section className="section" id="werkwijze">
         <div className="container">
           <div className="section__head">
             <span className="label">Mijn werkwijze</span>
@@ -190,7 +197,7 @@ export default function OverOns() {
               duidelijke structuur, afgestemd op jouw gezinssituatie en
               islamitische waarden in Utrecht en omstreken.
             </p>
-            <p style={{ marginTop: "0.8rem" }}>
+            <p className="section__subtext">
               Ik bied in overleg met mijn kraamvrouwen een vaste dagindeling die
               zorgt voor rust en overzicht in huis.
             </p>
@@ -198,7 +205,7 @@ export default function OverOns() {
           <div className="grid grid--2">
             {werkwijze.map((w, i) => (
               <Reveal key={w.title} delay={(i % 2) * 0.1}>
-                <div className="step" style={{ borderBottom: 0, padding: "1.2rem 0" }}>
+                <div className="step step--compact">
                   <span className="step__num">{String(i + 1).padStart(2, "0")}</span>
                   <div>
                     <h3>{w.title}</h3>
