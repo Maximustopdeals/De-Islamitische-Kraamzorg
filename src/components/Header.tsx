@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { nav, site } from "@/lib/site";
 
@@ -10,17 +11,22 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  // Scroll detection (SSR-veilig)
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Sluit mobile menu bij navigatie
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  // Body scroll lock bij open mobile menu
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -28,13 +34,29 @@ export default function Header() {
     };
   }, [open]);
 
+  // Sluit menu bij Escape-toets
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
     <>
       <header className={`header${scrolled ? " scrolled" : ""}`}>
         <div className="container header__inner">
           <Link href="/" className="brand" aria-label={site.name}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.webp" alt="" width={44} height={44} />
+            <Image
+              src="/images/logo.webp"
+              alt="Logo De Islamitische Kraamzorg"
+              width={44}
+              height={44}
+              priority
+            />
             <span>
               De Islamitische Kraamzorg
               <small>Utrecht &amp; omstreken</small>
@@ -69,6 +91,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   className={pathname === item.href ? "active" : ""}
+                  aria-current={pathname === item.href ? "page" : undefined}
                 >
                   {item.label}
                 </Link>
@@ -84,6 +107,7 @@ export default function Header() {
             className="menu-toggle"
             aria-label={open ? "Menu sluiten" : "Menu openen"}
             aria-expanded={open}
+            aria-controls="mobile-nav"
             onClick={() => setOpen(!open)}
           >
             <span />
@@ -91,7 +115,12 @@ export default function Header() {
         </div>
       </header>
 
-      <nav className={`mobile-nav${open ? " open" : ""}`} aria-label="Mobiel menu">
+      <nav
+        id="mobile-nav"
+        className={`mobile-nav${open ? " open" : ""}`}
+        aria-label="Mobiel menu"
+        aria-hidden={!open}
+      >
         {nav.map((item) =>
           item.children ? (
             <div key={item.href}>
