@@ -17,11 +17,32 @@ export const metadata: Metadata = {
   },
 };
 
+// AggregateRating schema voor SEO
+const ratingSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "De Islamitische Kraamzorg",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    bestRating: "5",
+    worstRating: "1",
+    ratingCount: "5",
+  },
+};
+
 export default function Reviews() {
   return (
     <>
+      {/* Structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }}
+      />
+
+      {/* Hero */}
       <section className="hero">
-        <div className="container" style={{ maxWidth: "62rem", textAlign: "center" }}>
+        <div className="container container--narrow text-center">
           <Reveal>
             <span className="label label--center">Reviews</span>
             <h1>
@@ -29,10 +50,10 @@ export default function Reviews() {
               <span className="accent">De Islamitische Kraamzorg</span> in
               Utrecht
             </h1>
-            <div className="stars" style={{ marginBlock: "1.25rem" }} aria-label="Vijf sterren">
+            <div className="stars stars--spaced" aria-label="Vijf sterren">
               ★★★★★
             </div>
-            <p className="lead" style={{ marginInline: "auto" }}>
+            <p className="lead lead--center">
               Als toegewijde kraamverzorgende ben ik, Nadia, dankbaar voor het
               vertrouwen dat zoveel gezinnen mij hebben gegeven tijdens de
               bijzondere kraamtijd. Uw review helpt niet alleen mij om te blijven
@@ -45,7 +66,8 @@ export default function Reviews() {
         <Ornament />
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
+      {/* Reviews widget */}
+      <section className="section section--no-top" id="reviews">
         <div className="container">
           <Reveal>
             {/* Google Reviews-widget van de klant (Elfsight) */}
@@ -55,7 +77,10 @@ export default function Reviews() {
             />
           </Reveal>
         </div>
-        <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
+        <Script
+          src="https://elfsightcdn.com/platform.js"
+          strategy="afterInteractive"
+        />
       </section>
 
       <CTABanner
