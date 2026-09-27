@@ -1,7 +1,6 @@
-import { cpSync, existsSync, rmSync } from "node:fs";
+import { cpSync, existsSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-// Kopieer de statische export (out/) naar dist/ voor de preview-pipeline.
 const root = process.cwd();
 const out = join(root, "out");
 const dist = join(root, "dist");
@@ -13,4 +12,7 @@ if (!existsSync(out)) {
 
 rmSync(dist, { recursive: true, force: true });
 cpSync(out, dist, { recursive: true });
-console.log("dist/ is bijgewerkt vanuit out/");
+
+// Voeg .nojekyll toe voor GitHub Pages
+writeFileSync(join(dist, ".nojekyll"), "");
+console.log("dist/ is bijgewerkt vanuit out/ (+ .nojekyll)");
