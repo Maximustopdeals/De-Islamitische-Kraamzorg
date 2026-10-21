@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    
+    # Voorkom dat je overspoeld wordt met Pull Requests
+    open-pull-requests-limit: 5
+    
+    # Voeg automatisch labels toe voor overzicht
+    labels:
+      - "dependencies"
+      - "security"
+      
+    # Groepeer kleine (minor) en patch-updates in één Pull Request
+    groups:
+      minor-and-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+          
+    # Negeer grote (major) updates voor Tailwind CSS om build-fouten te voorkomen
+    ignore:
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
