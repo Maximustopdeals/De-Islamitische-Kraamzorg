@@ -1,19 +1,9 @@
-/* =========================================================
-   De Islamitische Kraamzorg - globals.css
-   Huisstijl overgenomen van WordPress, structuur BEM (Next.js)
-   Bruin #53372c · Roze #febcbf · Roze-rood #f38d92
-   ========================================================= */
-
-/* =========================================================
-   1. DESIGN TOKENS
-   ========================================================= */
 :root { 
   --primary:      #53372c;
   --primary-dark: #7a5545;
   --secondary:    #f38d92;
   --accent:       #febcbf;
   --accent-dark:  #f7a3a8;
-
   --white:        #ffffff;
   --light-bg:     #fef8f5;
   --header-bg:    #fdf0f0;
@@ -22,28 +12,19 @@
   --star:         #f5a623;
   --whatsapp:     #25d366;
   --facebook:     #3b5998;
-
   --gradient:     linear-gradient(135deg, #febcbf, #f38d92);
   --cta-gradient: linear-gradient(135deg, #53372c, #7a5545);
-
   --font-serif:   var(--font-playfair), Georgia, serif;
   --font-sans:    var(--font-inter), system-ui, -apple-system, sans-serif;
-
   --radius:       20px;
   --radius-pill:  60px;
-
   --shadow-sm:    0 10px 30px rgba(0,0,0,0.05);
   --shadow-md:    0 20px 35px -10px rgba(0,0,0,0.1);
   --shadow-lg:    0 25px 60px rgba(83,55,44,0.12);
-
   --transition:   all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
   --container:    1200px;
 }
 
-/* =========================================================
-   2. RESET EN BASIS
-   ========================================================= */
 *,
 *::before,
 *::after {
@@ -80,7 +61,6 @@ h4 { font-size: 1.2rem; font-weight: 700; }
 
 p, a, li { 
   color: var(--gray-text); 
-  /* Voorkomt dat lange teksten of nummers buiten het scherm lopen */
   overflow-wrap: break-word; 
   word-wrap: break-word;
 }
@@ -93,7 +73,6 @@ a {
 
 img { max-width: 100%; height: auto; display: block; }
 
-/* Voorkomt dat losse SVG iconen gigantisch worden */
 svg:not(.ornament) {
   max-width: 32px;
   max-height: 32px;
@@ -120,7 +99,6 @@ svg:not(.ornament) {
 .text-center { text-align: center; }
 .accent { color: var(--secondary); }
 
-/* Voor screenreaders (Toegankelijkheid) */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -133,9 +111,6 @@ svg:not(.ornament) {
   border: 0;
 }
 
-/* =========================================================
-   3. SKIP LINK
-   ========================================================= */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -149,9 +124,6 @@ svg:not(.ornament) {
 }
 .skip-link:focus { top: 0; }
 
-/* =========================================================
-   4. HEADER
-   ========================================================= */
 .header {
   background: var(--header-bg);
   padding: 14px 0;
@@ -216,7 +188,6 @@ svg:not(.ornament) {
   color: var(--secondary);
 }
 
-/* Dropdown menu */
 .nav__group {
   position: relative;
 }
@@ -267,7 +238,6 @@ svg:not(.ornament) {
   min-width: auto;
 }
 
-/* Hamburger menu */
 .menu-toggle {
   display: none;
   background: none;
@@ -298,7 +268,6 @@ svg:not(.ornament) {
 .menu-toggle span::before { top: -8px; }
 .menu-toggle span::after { bottom: -8px; }
 
-/* Mobiel menu overlay */
 .mobile-nav {
   position: fixed;
   top: 0;
@@ -351,9 +320,6 @@ svg:not(.ornament) {
   color: var(--gray-text);
 }
 
-/* =========================================================
-   5. HERO
-   ========================================================= */
 .hero {
   position: relative;
   padding: 100px 0 80px;
@@ -416,7 +382,6 @@ svg:not(.ornament) {
   justify-content: center;
 }
 
-/* Hero media en badge */
 .hero__media { position: relative; }
 
 .hero__media .frame {
@@ -451,9 +416,6 @@ svg:not(.ornament) {
   font-family: var(--font-serif);
 }
 
-/* =========================================================
-   6. BUTTONS
-   ========================================================= */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -517,9 +479,6 @@ svg:not(.ornament) {
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
 }
 
-/* =========================================================
-   7. SECTIONS (basis)
-   ========================================================= */
 .section {
   padding: 80px 0;
 }
@@ -559,7 +518,6 @@ svg:not(.ornament) {
   text-align: center;
 }
 
-/* Label (boven koppen) */
 .label {
   display: inline-block;
   font-size: 0.8rem;
@@ -575,9 +533,6 @@ svg:not(.ornament) {
   text-align: center;
 }
 
-/* =========================================================
-   8. SPLIT LAYOUT (intro en afbeelding)
-   ========================================================= */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -616,9 +571,6 @@ svg:not(.ornament) {
   object-fit: cover;
 }
 
-/* =========================================================
-   9. GRIDS EN CARDS
-   ========================================================= */
 .grid {
   display: grid;
   gap: 30px;
@@ -678,7 +630,6 @@ svg:not(.ornament) {
   line-height: 1.7;
 }
 
-/* Notitie blok (voor flexibiliteit / prijzen) */
 .note {
   text-align: center;
   background: var(--white);
@@ -693,9 +644,6 @@ svg:not(.ornament) {
 
 .note strong { color: var(--primary); }
 
-/* =========================================================
-   10. TRUST BAR
-   ========================================================= */
 .trust {
   background: var(--white);
   padding: 40px 0;
@@ -751,9 +699,6 @@ svg:not(.ornament) {
   color: var(--gray-text);
 }
 
-/* =========================================================
-   11. REGIO CARDS (werkgebieden)
-   ========================================================= */
 .region-card {
   background: var(--white);
   padding: 36px 28px;
@@ -815,9 +760,6 @@ svg:not(.ornament) {
   background: var(--accent);
 }
 
-/* =========================================================
-   12. REGIO PAGINA'S (content blokken)
-   ========================================================= */
 .regio-sections {
   padding: 40px 0;
 }
@@ -932,9 +874,6 @@ svg:not(.ornament) {
   margin-top: 24px;
 }
 
-/* =========================================================
-   13. CTA BANNER
-   ========================================================= */
 .cta-banner {
   background: var(--cta-gradient);
   text-align: center;
@@ -972,9 +911,6 @@ svg:not(.ornament) {
   border-color: var(--accent);
 }
 
-/* =========================================================
-   14. FOOTER
-   ========================================================= */
 .footer {
   background: var(--primary);
   color: var(--white);
@@ -1031,9 +967,10 @@ svg:not(.ornament) {
   color: var(--accent);
 }
 
-.footer__legal {
+.footer__legal,
+.footer__legal li {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .footer__social {
@@ -1082,9 +1019,6 @@ svg:not(.ornament) {
   text-decoration: underline;
 }
 
-/* =========================================================
-   15. ORNAMENT
-   ========================================================= */
 .ornament {
   position: absolute;
   bottom: -1px;
@@ -1098,9 +1032,6 @@ svg:not(.ornament) {
   display: block;
 }
 
-/* =========================================================
-   16. REVEAL ANIMATIES
-   ========================================================= */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -1119,9 +1050,6 @@ svg:not(.ornament) {
   transform: none;
 }
 
-/* =========================================================
-   17. FORMULIER
-   ========================================================= */
 .form {
   display: flex;
   flex-direction: column;
@@ -1234,10 +1162,6 @@ svg:not(.ornament) {
   color: #c62828;
 }
 
-/* =========================================================
-   18. WIDGETS (WhatsApp & Sticky CTA & BackToTop)
-   ========================================================= */
-/* Sticky CTA (standaard verborgen op desktop) */
 .sticky-cta {
   display: none;
   position: fixed;
@@ -1259,7 +1183,6 @@ svg:not(.ornament) {
   margin: 0;
 }
 
-/* WhatsApp Widget */
 .wa-widget {
   position: fixed;
   bottom: 24px;
@@ -1393,11 +1316,11 @@ svg:not(.ornament) {
   background: #20b85a;
 }
 
-/* Back to Top knop */
 .back-to-top {
   position: fixed;
-  bottom: 96px; /* Boven de WhatsApp knop op desktop */
-  right: 28px;
+  bottom: 24px;
+  left: 24px;
+  right: auto;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -1433,10 +1356,6 @@ svg:not(.ornament) {
   height: 24px;
 }
 
-/* =========================================================
-   19. EXTRA PAGINA ELEMENTEN (Kraamzorg, FAQ, Quote)
-   ========================================================= */
-/* Stappen */
 .steps {
   display: grid;
   gap: 24px;
@@ -1463,7 +1382,6 @@ svg:not(.ornament) {
   line-height: 1;
 }
 
-/* Prijzen */
 .price-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1492,7 +1410,6 @@ svg:not(.ornament) {
   font-size: 0.95rem;
 }
 
-/* Quote */
 .quote {
   max-width: 800px;
   margin: 0 auto;
@@ -1528,7 +1445,6 @@ svg:not(.ornament) {
   letter-spacing: 0.1em;
 }
 
-/* FAQ */
 .faq {
   max-width: 800px;
   margin: 0 auto;
@@ -1579,9 +1495,6 @@ svg:not(.ornament) {
   line-height: 1.7;
 }
 
-/* =========================================================
-   20. RESPONSIVE
-   ========================================================= */
 @media (max-width: 992px) {
   .hero { padding: 80px 0 60px; }
   .hero__vertical { display: none; }
@@ -1625,8 +1538,6 @@ svg:not(.ornament) {
   
   .form { padding: 24px 16px; }
 
-  /* === FIXES VOOR DE WIDGETS OP MOBIEL === */
-  
   .sticky-cta {
     display: flex; 
   }
@@ -1638,10 +1549,10 @@ svg:not(.ornament) {
   
   .wa-popup { width: calc(100vw - 32px); max-width: 320px; }
 
-  /* Plaats de Back to Top knop op mobiel BOVEN de WhatsApp knop */
   .back-to-top {
-    bottom: 165px; /* 85px (WhatsApp) + 60px (hoogte) + 20px (ruimte) */
-    right: 22px;
+    bottom: 85px;
+    left: 16px;
+    right: auto;
     width: 44px;
     height: 44px;
   }
