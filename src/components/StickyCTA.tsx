@@ -30,7 +30,7 @@ export default function StickyCTA() {
         href={site.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn--sage"
+        className="btn btn--whatsapp"
         aria-label="Stuur een WhatsApp bericht"
       >
         <IconChat /> WhatsApp
