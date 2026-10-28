@@ -1,4 +1,4 @@
-export default function Ornament() {
+export default function Ornament() { 
   return (
     <svg
       className="ornament"
