@@ -19,7 +19,7 @@ const gevondenOpties = [
   "Google",
   "Facebook",
   "LinkedIn",
-  "Familie en/ of vrienden",
+  "Familie en/of vrienden",
   "Anders",
 ];
 
@@ -93,7 +93,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit} noValidate={false}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className="form__row">
         <div className="field">
           <label htmlFor="voornaam_meisjesnaam">
@@ -182,7 +182,7 @@ export default function ContactForm() {
         <label htmlFor="bevalling">Bevalling *</label>
         <select id="bevalling" name="bevalling" required defaultValue="">
           <option value="" disabled>
-            --- Selecteer keuze ---
+            Selecteer een keuze
           </option>
           {bevallingOpties.map((o) => (
             <option key={o} value={o}>
@@ -207,7 +207,7 @@ export default function ContactForm() {
             </label>
           ))}
         </div>
-        <p className="field__hint">Vink de talen aan die u spreekt!</p>
+        <p className="field__hint">Vink de talen aan die u spreekt.</p>
       </fieldset>
 
       <div className="form__row">
@@ -236,7 +236,7 @@ export default function ContactForm() {
         <label htmlFor="gevonden_via">Hoe heb je mij gevonden? *</label>
         <select id="gevonden_via" name="gevonden_via" required defaultValue="">
           <option value="" disabled>
-            --- Selecteer keuze ---
+            Selecteer een keuze
           </option>
           {gevondenOpties.map((o) => (
             <option key={o} value={o}>
@@ -257,7 +257,7 @@ export default function ContactForm() {
       />
 
       <button className="btn" type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Verzenden…" : "Verstuur aanvraag"}
+        {status === "sending" ? "Verzenden..." : "Verstuur aanvraag"}
       </button>
 
       <p className="form__privacy">
