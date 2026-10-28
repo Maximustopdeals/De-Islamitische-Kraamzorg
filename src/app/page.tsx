@@ -9,12 +9,12 @@ import { site } from "@/lib/site";
 import { IconHeart, IconMoon, IconUsers } from "@/components/Icons";
 
 export const metadata: Metadata = {
-  title: "Islamitische kraamzorg Utrecht | Kraamzorg op maat, 24/7",
+  title: "Islamitische Kraamzorg Utrecht | Kraamzorg op maat, 24/7",
   description:
     "Islamitische kraamzorg in Utrecht, Zeist, Nieuwegein, Houten en Gorinchem. Liefdevolle kraamzorg afgestemd op uw geloof. 24/7 bereikbaar. Plan een vrijblijvende kennismaking.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Islamitische kraamzorg Utrecht | Kraamzorg op maat, 24/7",
+    title: "Islamitische Kraamzorg Utrecht | Kraamzorg op maat, 24/7",
     description:
       "Islamitische kraamzorg in Utrecht, Zeist, Nieuwegein, Houten en Gorinchem. Liefdevolle kraamzorg afgestemd op uw geloof. 24/7 bereikbaar.",
     url: "/",
@@ -67,12 +67,10 @@ export default function Home() {
           <Reveal>
             <span className="label">Utrecht &amp; omstreken</span>
             <h1>
-              Islamitische <span className="accent">kraamzorg</span> in Utrecht
+              Islamitische <span className="accent">Kraamzorg</span> in Utrecht
             </h1>
             <p className="lead">
-              De Islamitische Kraamzorg biedt liefdevolle islamitische
-              kraamzorg in Utrecht, Zeist, Nieuwegein, Houten, IJsselstein en
-              omstreken. <strong>24/7 beschikbaar</strong>, ook in het weekend.
+              Islamitische Kraamzorg biedt liefdevolle zorg in Utrecht, Zeist, Nieuwegein, Houten, IJsselstein en omstreken. <strong>24/7 beschikbaar</strong>, ook in het weekend.
             </p>
             <div className="hero__actions">
               <Link href="/contact" className="btn">
@@ -111,26 +109,23 @@ export default function Home() {
             <Reveal>
               <span className="label">Welkom</span>
               <h2 className="section__title">
-                Liefdevolle islamitische kraamzorg in Utrecht, afgestemd op uw
-                geloof
+                Islamitische Kraamzorg Utrecht: Liefdevolle zorg, afgestemd op uw geloof
               </h2>
               <div className="prose">
                 <p>
-                  De Islamitische Kraamzorg Utrecht verwelkomt u met{" "}
+                  Islamitische Kraamzorg Utrecht verwelkomt u met{" "}
                   <em>Assalamu alaykum</em>. De komst van een baby is een uniek
                   en onvergetelijk moment. Juist in deze bijzondere periode is
                   het belangrijk dat moeder en kind omringd worden met rust,
-                  warmte en de beste zorg.
+                  warmte en de beste zorg. Bij Islamitische Kraamzorg in
+                  Utrecht staat niet alleen de gezondheid centraal, maar ook
+                  respect voor uw geloof en culturele achtergrond. Wij zien
+                  ieder kind als een kostbaar geschenk van Allah (subhana wa
+                  ta3ala).
                 </p>
                 <p>
-                  Bij De Islamitische Kraamzorg in Utrecht staat niet alleen de
-                  gezondheid centraal, maar ook respect voor uw geloof en
-                  culturele achtergrond. Wij zien ieder kind als een kostbaar
-                  geschenk van Allah (subhana wa ta3ala).
-                </p>
-                <p>
-                  De Islamitische Kraamzorg combineert de bewezen protocollen
-                  van reguliere kraamzorg in Utrecht met extra aandacht voor
+                  Islamitische Kraamzorg combineert de bewezen protocollen
+                  van reguliere kraamzorg Utrecht met extra aandacht voor
                   islamitische normen en waarden. Van gebedsondersteuning en
                   reinheidsvoorschriften tot voeding en omgangsvormen, alles
                   wordt afgestemd op uw wensen. Zo ervaart u de islamitische
@@ -194,9 +189,7 @@ export default function Home() {
               Onze werkgebieden in <span className="accent">Utrecht</span>
             </h2>
             <p>
-              Wij komen bij je thuis in de hele provincie Utrecht en omliggende
-              gemeenten, maar ook in{" "}
-              <Link href="/gorinchem">Gorinchem, Hardinxveld en Arkel</Link>.
+              Wij komen bij je thuis in de hele provincie Utrecht en omliggende gemeenten.
             </p>
           </div>
           <div className="grid grid--2">
@@ -230,7 +223,7 @@ export default function Home() {
             <span className="label">Flexibel</span>
             <h2>Komt u buiten Utrecht?</h2>
             <p>
-              De Islamitische Kraamzorg is flexibel. Neem contact op, ook als u
+              Islamitische Kraamzorg is flexibel. Neem contact op, ook als u
               net buiten onze regio woont.
             </p>
           </div>
@@ -260,7 +253,7 @@ export default function Home() {
 
       <CTABanner
         title="Woon je in Utrecht of omstreken?"
-        text="Maak vrijblijvend kennis met De Islamitische Kraamzorg. Wij komen bij jou thuis voor een persoonlijk gesprek."
+        text="Maak vrijblijvend kennis met Islamitische Kraamzorg. Wij komen bij jou thuis voor een persoonlijk gesprek."
       />
     </>
   );
