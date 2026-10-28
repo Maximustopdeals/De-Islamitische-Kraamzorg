@@ -39,6 +39,7 @@ export const site = {
 export const nav: readonly NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Over ons", href: "/over-ons" },
+  { label: "Kraamzorg", href: "/kraamzorg" },
   { 
     label: "Werkgebied", 
     href: "#", 
@@ -47,6 +48,15 @@ export const nav: readonly NavItem[] = [
       { label: "Gorinchem & omstreken", href: "/gorinchem" }
     ]
   },
+  { label: "Reviews", href: "/reviews" }, /* <-- NIEUW */
+  { label: "Contact", href: "/contact" },
+] as const;
+
+/* Links onderaan de website */
+export const footerNav: readonly NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Over ons", href: "/over-ons" },
   { label: "Kraamzorg", href: "/kraamzorg" },
+  { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
 ] as const;
