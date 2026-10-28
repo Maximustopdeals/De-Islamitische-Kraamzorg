@@ -6,6 +6,8 @@
 export type NavItem = {
   label: string;
   href: string;
+  // Voor het dropdown menu in de header
+  children?: readonly NavItem[];
 };
 
 /* Jouw bedrijfsgegevens */
@@ -17,9 +19,10 @@ export const site = {
   phone: "06-34426489",
   phoneIntl: "+31634426489",
   phoneLink: "tel:+31634426489",
-  whatsappLink: "https://wa.me/31634426489",
+  whatsapp: "https://wa.me/31634426489",
   email: "info@deislamitischekraamzorg.nl",
   facebook: "https://www.facebook.com/share/1Ef8FCwy7t/",
+  location: "Utrecht",
   address: {
     locality: "Utrecht",
     country: "NL",
