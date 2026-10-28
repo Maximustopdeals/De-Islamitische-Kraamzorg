@@ -3,7 +3,7 @@
  * Alles op één plek, zodat we het makkelijk kunnen aanpassen.
  */
 
-export type NavItem = {
+export type NavItem = { 
   label: string;
   href: string;
   // Voor het dropdown menu in de header en de lijst in de footer
