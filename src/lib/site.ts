@@ -6,7 +6,6 @@
 export type NavItem = {
   label: string;
   href: string;
-  // Voor het dropdown menu in de header
   children?: readonly NavItem[];
 };
 
@@ -28,6 +27,11 @@ export const site = {
     country: "NL",
   },
   openingHours: "Ma-Zo 00:00-23:59",
+  
+  /* Registraties en keurmerken */
+  kvk: "12345678", // Pas dit aan naar je echte KVK-nummer
+  kckz: "1234567", // Pas dit aan naar je echte KCKZ-nummer
+  agb: "123456789", // Pas dit aan naar je echte AGB-code
 } as const;
 
 /* Menu bovenaan de website */
