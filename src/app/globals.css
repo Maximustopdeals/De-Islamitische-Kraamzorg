@@ -143,7 +143,7 @@ svg:not(.ornament) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 16px;
 }
 
 .brand {
@@ -155,6 +155,7 @@ svg:not(.ornament) {
   font-weight: 700;
   font-size: 1.1rem;
   line-height: 1.2;
+  flex-shrink: 0;
 }
 
 .brand small {
@@ -170,11 +171,11 @@ svg:not(.ornament) {
 .nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 }
 
 .nav a, .nav__label {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -182,6 +183,7 @@ svg:not(.ornament) {
   position: relative;
   padding: 6px 0;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .nav a:hover, .nav a.active, .nav__label:hover, .nav__label.active {
@@ -225,6 +227,7 @@ svg:not(.ornament) {
   text-transform: none;
   letter-spacing: normal;
   color: var(--gray-text);
+  white-space: normal;
 }
 
 .nav__dropdown-inner a:hover {
@@ -233,9 +236,10 @@ svg:not(.ornament) {
 }
 
 .header__cta {
-  padding: 10px 24px;
-  font-size: 0.95rem;
+  padding: 8px 20px;
+  font-size: 0.85rem;
   min-width: auto;
+  white-space: nowrap;
 }
 
 .menu-toggle {
@@ -955,9 +959,10 @@ svg:not(.ornament) {
 
 .footer ul li { margin-bottom: 10px; }
 
+.footer ul li, 
 .footer ul li a,
 .footer p a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: color 0.3s ease;
 }
