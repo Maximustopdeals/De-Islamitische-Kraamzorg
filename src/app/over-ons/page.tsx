@@ -61,7 +61,8 @@ export default function OverOns() {
               Jouw vertrouwde kraamverzorgster in Utrecht. Met liefdevolle
               aandacht, rust en diep respect voor islamitische waarden begeleid
               ik gezinnen tijdens de bijzondere kraamtijd in Utrecht en
-              omstreken.
+              omstreken. Ontdek mijn persoonlijke werkwijze en passie voor het
+              vak.
             </p>
           </Reveal>
         </div>
@@ -135,7 +136,7 @@ export default function OverOns() {
             <Reveal delay={0.1}>
               <div className="card">
                 <span className="card__icon"><IconMoon /></span>
-                <h3>Waarom islamitische kraamzorg?</h3>
+                <h3>Waarom islamitische kraamzorg in Utrecht?</h3>
                 <p>
                   Islamitische kraamzorg biedt rust, herkenning en vertrouwen.
                   Van privacy en bescheidenheid tot rituelen zoals tahniek en
@@ -152,13 +153,14 @@ export default function OverOns() {
                   Ik werk samen met een aantal andere islamitische
                   kraamverzorgenden in Utrecht. Mocht ik zelf door omstandigheden
                   niet beschikbaar zijn, dan word je vooraf geïnformeerd over
-                  welke collega de zorg bij jou zal verlenen.
+                  welke collega de zorg bij jou zal verlenen. Zo ben je altijd
+                  verzekerd van warme, professionele en cultuursensitieve zorg.
                 </p>
               </div>
             </Reveal>
           </div>
 
-          <div className="grid grid--2 grid--spaced">
+          <div className="grid grid--3 grid--spaced">
             <Reveal>
               <div className="card card--sage">
                 <span className="card__icon"><IconShield /></span>
@@ -178,6 +180,16 @@ export default function OverOns() {
                   Mijn zorg sluit aan op islamitische waarden zoals privacy,
                   bescheidenheid, tawakkul en rituelen zoals tahniek en adhan in
                   Utrecht.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="card card--sage">
+                <span className="card__icon"><IconUsers /></span>
+                <h3>Gezinsgerichte aanpak</h3>
+                <p>
+                  Ik begeleid niet alleen de moeder, maar ondersteun het hele gezin
+                  met rust, aandacht en respect voor jullie leefwijze in Utrecht.
                 </p>
               </div>
             </Reveal>
