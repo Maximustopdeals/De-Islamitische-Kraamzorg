@@ -6,7 +6,7 @@ const out = join(root, "out");
 const dist = join(root, "dist");
 
 if (!existsSync(out)) {
-  console.error("out/ niet gevonden — is 'next build' geslaagd?");
+  console.error("out/ niet gevonden. Is 'next build' wel geslaagd?");
   process.exit(1);
 }
 
