@@ -101,8 +101,7 @@ export default function Kraamzorg() {
           <Reveal>
             <span className="label label--center">Utrecht &amp; omstreken</span>
             <h1>
-              Islamitische <span className="accent">kraamzorg</span>: een
-              onbezorgde en gezegende kraamtijd
+              Onze kraamzorg: een onbezorgde en gezegende kraamtijd
             </h1>
             <p className="lead lead--center">
               Professionele en liefdevolle begeleiding tijdens de belangrijkste
@@ -137,9 +136,9 @@ export default function Kraamzorg() {
               />
             </Reveal>
             <Reveal delay={0.15}>
-              <span className="label">Intro</span>
+              <span className="label">Welkom</span>
               <h2 className="section__title">
-                Wat mijn islamitische kraamzorg voor jou betekent
+                Dit is wat ik voor jou doe
               </h2>
               <div className="prose">
                 <p>
@@ -221,35 +220,33 @@ export default function Kraamzorg() {
           <div className="price-row">
             <Reveal>
               <div className="price-card">
-                <strong>Basisverzekering</strong>
+                <strong>Vergoed uit basisverzekering</strong>
                 <p>
-                  Vergoed uit basisverzekering. Geen eigen risico. De
-                  verzekering dekt de kern van de kraamzorg.
+                  Geen eigen risico. De verzekering dekt de kern van de kraamzorg.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
               <div className="price-card">
-                <strong>€5,70 / uur</strong>
+                <strong>Eigen bijdrage: €5,70 per uur</strong>
                 <p>
-                  Een kleine eigen bijdrage voor zorg thuis. Aanvullende
+                  Een kleine bijdrage voor zorg thuis. Aanvullende
                   verzekering kan dit dekken.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={0.2}>
               <div className="price-card">
-                <strong>Persoonlijk advies</strong>
+                <strong>Vragen? Ik help je graag</strong>
                 <p>
-                  Vragen? Ik help je graag. Ik kijk samen met je naar jouw
-                  situatie en verzekering.
+                  Ik kijk samen met je naar jouw situatie en verzekering. Geen verrassingen.
                 </p>
               </div>
             </Reveal>
           </div>
           <Reveal>
             <p className="note">
-              <strong>Geen verrassingen:</strong> ik geef je vooraf een
+              <strong>Geen verrassingen:</strong> Ik geef je vooraf een
               duidelijke indicatie van de kosten, zodat je weet waar je aan toe
               bent.
             </p>
@@ -270,7 +267,7 @@ export default function Kraamzorg() {
                 professioneel, vriendelijk, zorgzaam en liefdevol met je
                 baby.&rdquo;
               </p>
-              <footer>Firdaouss uit Utrecht</footer>
+              <footer>Firdaouss, Utrecht</footer>
             </div>
           </Reveal>
         </div>
