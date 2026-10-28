@@ -1,68 +1,11 @@
-export interface SiteConfig {
-  name: string;
-  shortName: string;
-  description: string;
-  url: string;
-  phone: string;
-  phoneIntl: string;
-  phoneLink: string;
-  whatsapp: string;
-  email: string;
-  facebook: string;
-  location: string;
-  kvk: string;
-  kckz: string;
-  agb: string;
-}
-
-export interface NavItem {
-  href: string;
-  label: string;
-  children?: NavItem[];
-}
-
-export interface TrustStat {
-  value: string;
-  label: string;
-}
-
-export const site: SiteConfig = {
+export const site = {
   name: "De Islamitische Kraamzorg",
-  shortName: "De Islamitische Kraamzorg Utrecht",
-  description:
-    "Islamitische kraamzorg in Utrecht en Gorinchem: warme, persoonlijke kraamzorg volledig afgestemd op islamitische waarden",
   url: "https://deislamitischekraamzorg.nl",
+  description:
+    "Islamitische kraamzorg in Utrecht, Zeist, Nieuwegein, Houten en Gorinchem. Liefdevolle kraamzorg afgestemd op uw geloof. 24/7 bereikbaar.",
   phone: "06-34426489",
   phoneIntl: "+31634426489",
   phoneLink: "tel:+31634426489",
-  whatsapp: "https://wa.me/31634426489",
   email: "info@deislamitischekraamzorg.nl",
-  facebook: "https://www.facebook.com/people/De-Islamitische-Kraamzorg/100089960233370/",
-  location: "Utrecht",
-  kvk: "73038180",
-  kckz: "217968",
-  agb: "33330985",
-} as const;
-
-export const nav: NavItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/kraamzorg", label: "Kraamzorg" },
-  { href: "/over-ons", label: "Over ons" },
-  { href: "/reviews", label: "Reviews" },
-  {
-    href: "/utrecht",
-    label: "Werkgebied",
-    children: [
-      { href: "/utrecht", label: "Utrecht" },
-      { href: "/gorinchem", label: "Gorinchem" },
-    ],
-  },
-  { href: "/contact", label: "Contact" },
-];
-
-export const trustStats: TrustStat[] = [
-  { value: "5.0/5", label: "Gemiddelde waardering" },
-  { value: "5+", label: "Jaar ervaring" },
-  { value: "★★★★★", label: "Tevreden gezinnen" },
-  { value: "24/7", label: "Beschikbaar" },
-];
+  facebook: "https://www.facebook.com/share/1Ef8FCwy7t/",
+};
