@@ -93,7 +93,7 @@ a {
 
 img { max-width: 100%; height: auto; display: block; }
 
-/* Voorkomt dat losse SVG iconen gigantisch worden (zoals op de contactpagina) */
+/* Voorkomt dat losse SVG iconen gigantisch worden */
 svg:not(.ornament) {
   max-width: 32px;
   max-height: 32px;
@@ -1235,11 +1235,11 @@ svg:not(.ornament) {
 }
 
 /* =========================================================
-   18. WIDGETS (WhatsApp & Sticky CTA)
+   18. WIDGETS (WhatsApp & Sticky CTA & BackToTop)
    ========================================================= */
 /* Sticky CTA (standaard verborgen op desktop) */
 .sticky-cta {
-  display: none; /* Wordt weer zichtbaar in de mobiele media query */
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -1391,6 +1391,46 @@ svg:not(.ornament) {
 
 .wa-popup__start:hover {
   background: #20b85a;
+}
+
+/* Back to Top knop */
+.back-to-top {
+  position: fixed;
+  bottom: 96px; /* Boven de WhatsApp knop op desktop */
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 99;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* =========================================================
@@ -1587,18 +1627,24 @@ svg:not(.ornament) {
 
   /* === FIXES VOOR DE WIDGETS OP MOBIEL === */
   
-  /* Toon de Sticky CTA nu wel */
   .sticky-cta {
     display: flex; 
   }
 
-  /* Plaats de WhatsApp knop netjes BOVEN de Sticky CTA */
   .wa-widget { 
     bottom: 85px; 
     right: 16px; 
   }
   
   .wa-popup { width: calc(100vw - 32px); max-width: 320px; }
+
+  /* Plaats de Back to Top knop op mobiel BOVEN de WhatsApp knop */
+  .back-to-top {
+    bottom: 165px; /* 85px (WhatsApp) + 60px (hoogte) + 20px (ruimte) */
+    right: 22px;
+    width: 44px;
+    height: 44px;
+  }
 }
 
 @media (max-width: 480px) {
