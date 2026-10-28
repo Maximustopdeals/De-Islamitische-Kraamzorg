@@ -6,6 +6,7 @@
 export type NavItem = {
   label: string;
   href: string;
+  // Voor het dropdown menu in de header en de lijst in de footer
   children?: readonly NavItem[];
 };
 
@@ -28,26 +29,24 @@ export const site = {
   },
   openingHours: "Ma-Zo 00:00-23:59",
   
-  /* Registraties en keurmerken */
-  kvk: "12345678", // Pas dit aan naar je echte KVK-nummer
-  kckz: "1234567", // Pas dit aan naar je echte KCKZ-nummer
-  agb: "123456789", // Pas dit aan naar je echte AGB-code
+  /* Registraties en keurmerken (vul hier de echte nummers in) */
+  kvk: "73038180", 
+  kckz: "217968", 
+  agb: "33330985", 
 } as const;
 
 /* Menu bovenaan de website */
 export const nav: readonly NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Over ons", href: "/over-ons" },
-  { label: "Werkgebied", href: "/utrecht" },
+  { 
+    label: "Werkgebied", 
+    href: "#", 
+    children: [
+      { label: "Utrecht & omstreken", href: "/utrecht" },
+      { label: "Gorinchem & omstreken", href: "/gorinchem" }
+    ]
+  },
   { label: "Kraamzorg", href: "/kraamzorg" },
-  { label: "Contact", href: "/contact" },
-] as const;
-
-/* Links onderaan de website */
-export const footerNav: readonly NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Over ons", href: "/over-ons" },
-  { label: "Werkgebied Utrecht", href: "/utrecht" },
-  { label: "Werkgebied Gorinchem", href: "/gorinchem" },
   { label: "Contact", href: "/contact" },
 ] as const;
