@@ -112,7 +112,7 @@ export default function Utrecht() {
             title: "Islamitische kraamzorg in Utrecht: zorg die aansluit bij uw geloof en gezin",
             paragraphs: [
               "Bent u zwanger en zoekt u islamitische kraamzorg in Utrecht? Bij De Islamitische Kraamzorg staat de eerste week na de bevalling centraal: rust, herstel, borstvoeding, bonding en praktische ondersteuning, volledig afgestemd op islamitische waarden en uw persoonlijke wensen.",
-              "Onze kraamverzorgenden zijn gediplomeerd, ervaren en werken dagelijks met gezinnen in Utrecht en omgeving. Wij begrijpen hoe belangrijk het is dat uw zorgverlener respect heeft voor uw geloof, gebedsmomenten, voeding en gewoonten rond de geboorte.",
+              "Onze kraamverzorgenden zijn gediplomeerd, ervaren en werken dagelijks met gezinnen in Utrecht en omgeving. Wij begrijpen hoe belangrijk het is dat uw zorgverlener respect heeft voor uw geloof, voeding en gewoonten rond de geboorte.",
             ],
           },
           {
@@ -124,10 +124,10 @@ export default function Utrecht() {
             bullets: [
               "Persoonlijke begeleiding van moeder en partner, met aandacht voor uw religieuze en culturele achtergrond",
               "Ondersteuning bij borstvoeding of flesvoeding, met respect voor uw keuze",
-              "Praktische hulp in huis: lichte huishoudelijke taken, maaltijden, wasjes en verzorging van de baby",
+              "Praktische hulp in huis: lichte huishoudelijke taken, ontbijt & lunch, wasjes en verzorging van de baby",
               "Voorlichting over verzorging van de pasgeborene, signalen van de baby, slaapritme en hechting",
               "Aandacht voor islamitische gewoonten, zoals de adhan in het oor van de baby en bismillah bij het oppakken",
-              "Ruimte voor gebed en rust, zodat u zich kunt richten op herstel en bonding",
+              "Ruimte voor rust, zodat u zich kunt richten op herstel en bonding",
             ],
           },
           {
