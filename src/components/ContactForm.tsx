@@ -1,9 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
 import { site } from "@/lib/site";
-
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjykeqvz";
 
 const talenOpties = ["Nederlands", "Engels", "Arabisch", "Berbers", "Turks"];
 
@@ -25,12 +23,21 @@ const gevondenOpties = [
 
 /**
  * Aanmeldformulier, post naar Formspree.
- * Mislukte verzending valt terug op WhatsApp met alle velden vooraf ingevuld.
+ * Bij een fout krijgt de klant een duidelijke foutmelding met WhatsApp-knop.
  */
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">(
     "idle"
   );
+  const [submittedEmail, setSubmittedEmail] = useState<string>("");
+  const statusRef = useRef<HTMLDivElement>(null);
+
+  // Focus op de statusmelding bij succes of fout (toegankelijkheid)
+  useEffect(() => {
+    if (status === "ok" || status === "error") {
+      statusRef.current?.focus();
+    }
+  }, [status]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,25 +47,30 @@ export default function ContactForm() {
     // Honeypot: stilletjes negeren als deze is ingevuld
     if (data.get("website")) return;
 
+    setSubmittedEmail(String(data.get("email") ?? ""));
     setStatus("sending");
+
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch(site.formspreeEndpoint, {
         method: "POST",
         headers: { Accept: "application/json" },
         body: data,
       });
+
       if (res.ok) {
         setStatus("ok");
         form.reset();
       } else {
-        fallbackWhatsApp(data);
+        setStatus("error");
       }
     } catch {
-      fallbackWhatsApp(data);
+      setStatus("error");
     }
   }
 
-  function fallbackWhatsApp(data: FormData) {
+  // Bouw een WhatsApp-bericht met alle ingevulde gegevens (voor de foutfallback)
+  function buildWhatsAppUrl(form: HTMLFormElement): string {
+    const data = new FormData(form);
     const talen = data.getAll("talen").join(", ");
     const regels = [
       `Salaam, mijn naam is ${data.get("voornaam_meisjesnaam")}.`,
@@ -84,12 +96,7 @@ export default function ContactForm() {
       `Gevonden via: ${data.get("gevonden_via")}`,
     ].filter(Boolean);
 
-    window.open(
-      `${site.whatsapp}?text=${encodeURIComponent(regels.join("\n"))}`,
-      "_blank",
-      "noopener"
-    );
-    setStatus("ok");
+    return `${site.whatsapp}?text=${encodeURIComponent(regels.join("\n"))}`;
   }
 
   return (
@@ -246,6 +253,13 @@ export default function ContactForm() {
         </select>
       </div>
 
+      {/* Formspree meta-velden: mooiere e-mails */}
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nieuwe aanmelding via deislamitischekraamzorg.nl"
+      />
+
       {/* Honeypot tegen spam */}
       <input
         type="text"
@@ -266,17 +280,44 @@ export default function ContactForm() {
 
       {/* Statusmeldingen */}
       {status === "ok" && (
-        <p className="form__status ok" role="status" aria-live="polite">
-          Dank u wel! Uw aanvraag is verstuurd. Wij nemen zo snel mogelijk
-          contact met u op.
-        </p>
+        <div
+          ref={statusRef}
+          className="form__status ok"
+          role="status"
+          aria-live="polite"
+          tabIndex={-1}
+        >
+          <strong>Bedankt voor uw aanmelding!</strong>
+          <br />
+          We hebben uw gegevens ontvangen
+          {submittedEmail ? ` en nemen contact op via ${submittedEmail}` : ""}.
+          U hoort zo snel mogelijk van ons.
+        </div>
       )}
 
       {status === "error" && (
-        <p className="form__status error" role="alert" aria-live="assertive">
-          Er ging iets mis bij het versturen. Probeer het opnieuw of neem
-          contact op via WhatsApp.
-        </p>
+        <div
+          ref={statusRef}
+          className="form__status error"
+          role="alert"
+          aria-live="assertive"
+          tabIndex={-1}
+        >
+          <strong>Er ging iets mis bij het versturen.</strong>
+          <br />
+          Probeer het opnieuw, of neem direct contact op via{" "}
+          <a
+            href={buildWhatsAppUrl(
+              statusRef.current?.closest("form") as HTMLFormElement
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "inherit", textDecoration: "underline" }}
+          >
+            WhatsApp
+          </a>
+          .
+        </div>
       )}
     </form>
   );
