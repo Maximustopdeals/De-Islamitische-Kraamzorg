@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 import Ornament from "@/components/Ornament";
 import ContactForm from "@/components/ContactForm";
 import { site } from "@/lib/site";
-import { IconPhone, IconMail, IconChat } from "@/components/Icons";
+import { IconPhone, IconMail } from "@/components/Icons";
 
 export const metadata: Metadata = {
   title: "Contact islamitische kraamzorg Utrecht | Vrijblijvend kennismaken",
@@ -95,20 +95,6 @@ export default function Contact() {
                   <strong className="contact-method__value contact-method__value--email">
                     {site.email}
                   </strong>
-                </span>
-              </a>
-
-              <a
-                href={site.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-method"
-                aria-label="Stuur een WhatsApp bericht"
-              >
-                <span className="contact-method__icon"><IconChat /></span>
-                <span className="contact-method__body">
-                  <span className="contact-method__label">WhatsApp</span>
-                  <strong className="contact-method__value">Stuur een bericht</strong>
                 </span>
               </a>
             </div>
