@@ -75,7 +75,9 @@ export default function ContactForm() {
     const regels = [
       `Salaam, mijn naam is ${data.get("voornaam_meisjesnaam")}.`,
       `Naam partner: ${data.get("naam_partner")}`,
-      `Adres: ${data.get("adres")}`,
+      `Straat en huisnummer: ${data.get("straat_huisnummer")}`,
+      `Postcode: ${data.get("postcode")}`,
+      `Woonplaats: ${data.get("woonplaats")}`,
       `E-mail: ${data.get("email")}`,
       `Mobiel: ${data.get("mobiel")}`,
       `Uitgerekende datum: ${data.get("uitgerekende_datum")}`,
@@ -127,15 +129,41 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* NIEUW: Adres opgesplitst in 3 aparte velden */}
+      <div className="form__row">
+        <div className="field">
+          <label htmlFor="straat_huisnummer">Straatnaam en huisnummer *</label>
+          <input
+            id="straat_huisnummer"
+            name="straat_huisnummer"
+            type="text"
+            required
+            autoComplete="address-line1"
+            placeholder="Bijv. Kerkstraat 1"
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="postcode">Postcode *</label>
+          <input
+            id="postcode"
+            name="postcode"
+            type="text"
+            required
+            autoComplete="postal-code"
+            placeholder="Bijv. 1234 AB"
+          />
+        </div>
+      </div>
+
       <div className="field">
-        <label htmlFor="adres">Adres, postcode en woonplaats *</label>
+        <label htmlFor="woonplaats">Woonplaats *</label>
         <input
-          id="adres"
-          name="adres"
+          id="woonplaats"
+          name="woonplaats"
           type="text"
           required
-          autoComplete="street-address"
-          placeholder="Vul hier je adres, postcode en woonplaats in"
+          autoComplete="address-level2"
+          placeholder="Bijv. Utrecht"
         />
       </div>
 
