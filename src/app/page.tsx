@@ -126,8 +126,7 @@ export default function Home() {
                 <p>
                   Islamitische Kraamzorg combineert de bewezen protocollen
                   van reguliere kraamzorg Utrecht met extra aandacht voor
-                  islamitische normen en waarden. Van gebedsondersteuning en
-                  reinheidsvoorschriften tot voeding en omgangsvormen, alles
+                  islamitische normen en waarden. Van reinheidsvoorschriften tot voeding en omgangsvormen, alles
                   wordt afgestemd op uw wensen. Zo ervaart u de islamitische
                   kraamzorg in Utrecht zoals het hoort: vertrouwd, respectvol en
                   in harmonie met uw geloof.
