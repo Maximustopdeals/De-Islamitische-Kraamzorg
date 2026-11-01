@@ -124,6 +124,8 @@ svg:not(.ornament) {
 }
 .skip-link:focus { top: 0; }
 
+/* ---------- HEADER ---------- */
+
 .header {
   background: var(--header-bg);
   padding: 14px 0;
@@ -324,6 +326,8 @@ svg:not(.ornament) {
   color: var(--gray-text);
 }
 
+/* ---------- HERO & BUTTONS ---------- */
+
 .hero {
   position: relative;
   padding: 100px 0 80px;
@@ -483,6 +487,8 @@ svg:not(.ornament) {
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
 }
 
+/* ---------- SECTIONS & TYPOGRAPHY ---------- */
+
 .section {
   padding: 80px 0;
 }
@@ -575,6 +581,8 @@ svg:not(.ornament) {
   object-fit: cover;
 }
 
+/* ---------- LAYOUTS & GRIDS ---------- */
+
 .grid {
   display: grid;
   gap: 30px;
@@ -649,6 +657,8 @@ svg:not(.ornament) {
 
 .note strong { color: var(--primary); }
 
+/* ---------- TRUST BAR ---------- */
+
 .trust {
   background: var(--white);
   padding: 40px 0;
@@ -703,6 +713,8 @@ svg:not(.ornament) {
   font-size: 0.85rem;
   color: var(--gray-text);
 }
+
+/* ---------- REGION CARDS ---------- */
 
 .region-card {
   background: var(--white);
@@ -879,6 +891,8 @@ svg:not(.ornament) {
   margin-top: 24px;
 }
 
+/* ---------- CTA BANNER ---------- */
+
 .cta-banner {
   background: var(--cta-gradient);
   text-align: center;
@@ -914,6 +928,129 @@ svg:not(.ornament) {
   background: var(--accent);
   color: var(--primary);
   border-color: var(--accent);
+}
+
+/* ---------- CONTACT PAGINA (High End) ---------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; /* Formulier iets breder dan de contactkaarten */
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(83, 55, 44, 0.06);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.contact-method:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(254, 188, 191, 0.4);
+}
+
+.contact-method__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(254, 188, 191, 0.15);
+  color: var(--secondary);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.contact-method:hover .contact-method__icon {
+  background: var(--secondary);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+.contact-method__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-method__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden; /* Voorkomt overflow van lange e-mails */
+}
+
+.contact-method__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gray-text);
+}
+
+.contact-method__value {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--primary);
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+.contact-method__value--email {
+  font-size: 1.1rem;
+  font-family: var(--font-sans); /* E-mails lezen soms fijner in sans-serif */
+  font-weight: 600;
+}
+
+.contact-side {
+  margin-top: 40px;
+}
+
+/* Aanpassingen voor de quote en note binnen de contactpagina */
+.quote--left {
+  text-align: left;
+  padding: 30px;
+  margin: 0 0 20px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.quote__text--small {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+
+.quote__footer--left {
+  font-size: 0.75rem;
+  color: var(--secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.note--flat {
+  text-align: left;
+  margin-top: 0;
+  padding: 16px 20px;
+  border-left: 4px solid var(--accent);
+  background: var(--badge-bg);
+  font-size: 0.95rem;
+  border-radius: 12px;
+  box-shadow: none;
 }
 
 /* ---------- FOOTER ---------- */
@@ -1092,7 +1229,7 @@ svg:not(.ornament) {
   text-decoration: underline;
 }
 
-/* ---------- EINDE FOOTER ---------- */
+/* ---------- ANIMATIES & ORNAMENT ---------- */
 
 .ornament {
   position: absolute;
@@ -1124,6 +1261,8 @@ svg:not(.ornament) {
   opacity: 1;
   transform: none;
 }
+
+/* ---------- FORMULIER ---------- */
 
 .form {
   display: flex;
@@ -1236,6 +1375,8 @@ svg:not(.ornament) {
   background: #ffebee;
   color: #c62828;
 }
+
+/* ---------- WIDGETS & FLOATING ---------- */
 
 .sticky-cta {
   display: none;
@@ -1431,6 +1572,8 @@ svg:not(.ornament) {
   height: 24px;
 }
 
+/* ---------- STAPPEN, PRIJZEN & QUOTES ---------- */
+
 .steps {
   display: grid;
   gap: 24px;
@@ -1520,6 +1663,8 @@ svg:not(.ornament) {
   letter-spacing: 0.1em;
 }
 
+/* ---------- FAQ ---------- */
+
 .faq {
   max-width: 800px;
   margin: 0 auto;
@@ -1570,6 +1715,8 @@ svg:not(.ornament) {
   line-height: 1.7;
 }
 
+/* ---------- MEDIA QUERIES ---------- */
+
 @media (max-width: 992px) {
   .hero { padding: 80px 0 60px; }
   .hero__vertical { display: none; }
@@ -1582,6 +1729,9 @@ svg:not(.ornament) {
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; }
+  
+  /* Contact pagina responsive */
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
 @media (max-width: 768px) {
