@@ -99,6 +99,9 @@ const localBusiness = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
+
   return (
     <html lang="nl" className={`no-js ${playfair.variable} ${inter.variable}`}>
       <head>
@@ -107,38 +110,47 @@ export default function RootLayout({
           {`document.documentElement.classList.remove('no-js')`}
         </Script>
 
-        {/* Google Tag Manager */}
-        <Script id="gtm" strategy="lazyOnload">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        {/* Google Tag Manager — conditioneel via env var */}
+        {gtmId && (
+          <Script id="gtm" strategy="afterInteractive">
+            {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KJ76485D');`}
-        </Script>
+})(window,document,'script','dataLayer','${gtmId}');`}
+          </Script>
+        )}
 
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-MJ79FGGLFK"
-          strategy="lazyOnload"
-        />
-        <Script id="ga4" strategy="lazyOnload">
-          {`window.dataLayer = window.dataLayer || [];
+        {/* GA4 — alleen laden als aparte env var is gezet
+            (voorkomt dubbele pageviews als GA4 al in GTM zit) */}
+        {ga4Id && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-MJ79FGGLFK');`}
-        </Script>
+gtag('config', '${ga4Id}');`}
+            </Script>
+          </>
+        )}
       </head>
       <body>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-KJ76485D"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-            title="Google Tag Manager"
-          />
-        </noscript>
+        {/* Google Tag Manager (noscript) — conditioneel */}
+        {gtmId && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+              title="Google Tag Manager"
+            />
+          </noscript>
+        )}
 
         {/* Structured Data: LocalBusiness */}
         <script
