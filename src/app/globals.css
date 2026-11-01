@@ -583,6 +583,7 @@ svg:not(.ornament) {
 .grid--1 { grid-template-columns: 1fr; }
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
 
 .card {
   background: var(--white);
@@ -975,7 +976,7 @@ svg:not(.ornament) {
   color: var(--accent);
 }
 
-/* --- Nieuwe nette contactgegevens (dl-based) --- */
+/* --- Nette contactgegevens (dl-based) --- */
 .footer__contact {
   display: grid;
   gap: 0.85rem;
@@ -996,7 +997,7 @@ svg:not(.ornament) {
   line-height: 1.35;
 }
 
-/* Linkkleuren binnen de dl's (nodig: globale a-color is donkerbruin) */
+/* Linkkleuren binnen de dl's */
 .footer__contact a,
 .footer__legal a {
   color: rgba(255, 255, 255, 0.9);
@@ -1009,7 +1010,7 @@ svg:not(.ornament) {
   color: var(--accent);
 }
 
-/* --- Nieuwe nette bedrijfsgegevens (dl-based, "KvK: 73038180") --- */
+/* --- Bedrijfsgegevens (dl-based, "KvK: 73038180") --- */
 .footer__legal {
   display: grid;
   gap: 0.35rem;
@@ -1579,6 +1580,7 @@ svg:not(.ornament) {
   .split__media { max-width: 560px; margin: 0 auto; }
   
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; }
 }
 
@@ -1586,7 +1588,7 @@ svg:not(.ornament) {
   .section { padding: 60px 0; }
   .section__head { margin-bottom: 36px; }
   
-  .grid--2, .grid--3, .form__row, .price-row { grid-template-columns: 1fr; gap: 20px; }
+  .grid--2, .grid--3, .grid--4, .form__row, .price-row { grid-template-columns: 1fr; gap: 20px; }
   
   .btn { width: 100%; min-width: unset; }
   .header__cta { display: none; }
