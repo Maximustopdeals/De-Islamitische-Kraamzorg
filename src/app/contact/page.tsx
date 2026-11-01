@@ -108,7 +108,7 @@ export default function Contact() {
                 <span className="contact-method__icon"><IconChat /></span>
                 <span className="contact-method__body">
                   <span className="contact-method__label">WhatsApp</span>
-                  <strong className="contact-method__value">{site.phone}</strong>
+                  <strong className="contact-method__value">Stuur een bericht</strong>
                 </span>
               </a>
             </div>
