@@ -915,6 +915,8 @@ svg:not(.ornament) {
   border-color: var(--accent);
 }
 
+/* ---------- FOOTER ---------- */
+
 .footer {
   background: var(--primary);
   color: var(--white);
@@ -922,9 +924,10 @@ svg:not(.ornament) {
   font-size: 0.95rem;
 }
 
+/* 5 kolommen → 4 kolommen (Contact + Bedrijfsgegevens delen één kolom) */
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.2fr 1.8fr;
   gap: 40px;
   margin-bottom: 40px;
 }
@@ -972,10 +975,74 @@ svg:not(.ornament) {
   color: var(--accent);
 }
 
-.footer__legal,
-.footer__legal li {
+/* --- Nieuwe nette contactgegevens (dl-based) --- */
+.footer__contact {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+}
+
+.footer__contact dt {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.65;
+  margin: 0 0 0.15rem;
+}
+
+.footer__contact dd {
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Linkkleuren binnen de dl's (nodig: globale a-color is donkerbruin) */
+.footer__contact a,
+.footer__legal a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__contact a:hover,
+.footer__legal a:hover {
+  color: var(--accent);
+}
+
+/* --- Nieuwe nette bedrijfsgegevens (dl-based, "KvK: 73038180") --- */
+.footer__legal {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.footer__legal > div {
+  display: flex;
+  gap: 0.25rem;
+  align-items: baseline;
+}
+
+.footer__legal dt {
+  margin: 0;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 0.85;
+}
+
+.footer__legal dt::after {
+  content: ":";
+}
+
+.footer__legal dd {
+  margin: 0;
+}
+
+/* Extra ruimte boven "Bedrijfsgegevens" binnen dezelfde kolom */
+.footer__subheading {
+  margin-top: 1.75rem;
 }
 
 .footer__social {
@@ -1023,6 +1090,8 @@ svg:not(.ornament) {
   color: var(--white);
   text-decoration: underline;
 }
+
+/* ---------- EINDE FOOTER ---------- */
 
 .ornament {
   position: absolute;
@@ -1540,6 +1609,9 @@ svg:not(.ornament) {
   .footer__brand p { margin: 0 auto 20px; }
   .footer__social { justify-content: center; }
   .footer__bottom { flex-direction: column; text-align: center; font-size: 0.75rem; }
+
+  /* Nette centrering van KvK/KCKZ/AGB op mobiel */
+  .footer__legal > div { justify-content: center; }
   
   .form { padding: 24px 16px; }
 
