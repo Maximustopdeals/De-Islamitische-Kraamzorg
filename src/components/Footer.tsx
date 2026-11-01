@@ -84,42 +84,56 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>Bedrijfsgegevens</h4>
-          <ul className="footer__legal">
-            <li>KvK: {site.kvk}</li>
-            <li>KCKZ: {site.kckz}</li>
-            <li>AGB-code: {site.agb}</li>
-          </ul>
-        </div>
-
-        <div>
           <h4>Contact</h4>
-          <ul>
-            <li>
-              <a href={site.phoneLink} aria-label={`Bel ${site.phone}`}>
-                {site.phone}
-              </a>
-            </li>
-            <li>
-              <a
-                href={`mailto:${site.email}`}
-                aria-label={`E-mail naar ${site.email}`}
-              >
-                {site.email}
-              </a>
-            </li>
-            <li>
-              <a
-                href={site.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Stuur een WhatsApp bericht"
-              >
-                WhatsApp {site.phone}
-              </a>
-            </li>
-            <li>{site.location}</li>
-          </ul>
+          <dl className="footer__contact">
+            <div>
+              <dt>Telefoon</dt>
+              <dd>
+                <a href={site.phoneLink} aria-label={`Bel ${site.phone}`}>
+                  {site.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>E-mail</dt>
+              <dd>
+                <a
+                  href={`mailto:${site.email}`}
+                  aria-label={`E-mail naar ${site.email}`}
+                >
+                  {site.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>WhatsApp</dt>
+              <dd>
+                <a
+                  href={site.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Stuur een bericht
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <h4 className="footer__subheading">Bedrijfsgegevens</h4>
+          <dl className="footer__legal">
+            <div>
+              <dt>KvK</dt>
+              <dd>{site.kvk}</dd>
+            </div>
+            <div>
+              <dt>KCKZ</dt>
+              <dd>{site.kckz}</dd>
+            </div>
+            <div>
+              <dt>AGB</dt>
+              <dd>{site.agb}</dd>
+            </div>
+          </dl>
         </div>
       </div>
 
