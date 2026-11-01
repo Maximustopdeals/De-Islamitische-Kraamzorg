@@ -107,7 +107,7 @@ export default function Gorinchem() {
               "Islamitische kraamzorg in Gorinchem: zorg met hart voor geloof en gezin",
             paragraphs: [
               "Bent u zwanger en zoekt u islamitische kraamzorg in Gorinchem? Bij De Islamitische Kraamzorg krijgt u in de eerste week na de bevalling liefdevolle, professionele ondersteuning thuis. Onze kraamverzorgenden zijn gediplomeerd, ervaren en werken met aandacht voor islamitische waarden, uw gezinssituatie en persoonlijke wensen.",
-              "In Gorinchem en omgeving begeleiden wij moeders, baby's en gezinnen met rust, ruimte en praktische hulp. Wij weten hoe belangrijk het is dat uw kraamverzorgende begrijpt wat voor u belangrijk is: van gebedsmomenten tot voeding, en van tradities rond de geboorte tot de dagelijkse verzorging van uw baby.",
+              "In Gorinchem en omgeving begeleiden wij moeders, baby's en gezinnen met rust, ruimte en praktische hulp. Wij weten hoe belangrijk het is dat uw kraamverzorgende begrijpt wat voor u belangrijk is: van voeding en tradities rond de geboorte tot de dagelijkse verzorging van uw baby.",
             ],
           },
           {
@@ -120,10 +120,10 @@ export default function Gorinchem() {
             bullets: [
               "Begeleiding van moeder en partner, met respect voor uw geloof en cultuur",
               "Ondersteuning bij borstvoeding of flesvoeding, afgestemd op uw keuze en situatie",
-              "Praktische hulp in huis: lichte huishoudelijke taken, maaltijden, wasjes en verzorging van de baby",
+              "Praktische hulp in huis: lichte huishoudelijke taken, ontbijt & lunch, wasjes en verzorging van de baby",
               "Voorlichting over de verzorging van de pasgeborene, signalen, slaapritme en hechting",
               "Aandacht voor islamitische tradities, zoals de adhan bij de geboorte en bismillah bij het oppakken",
-              "Ruimte voor gebed en rust, zodat u zich kunt richten op herstel en bonding",
+              "Ruimte voor rust, zodat u zich kunt richten op herstel en bonding",
             ],
             paragraphsAfter: [
               "Wij werken volgens de landelijke richtlijnen voor kraamzorg, maar vullen dit aan met begrip voor uw religieuze en culturele achtergrond.",
