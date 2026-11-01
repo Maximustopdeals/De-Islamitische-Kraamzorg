@@ -1,4 +1,4 @@
-import type { Metadata } from "next"; 
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
@@ -26,7 +26,7 @@ const pluspunten = [
   {
     icon: <IconMoon />,
     title: "Zorg afgestemd op islamitische waarden",
-    text: "Extra aandacht voor gebedstijden, reinheid, voeding en islamitische gewoonten. Islamitische kraamzorg die volledig past bij uw geloof en levensstijl.",
+    text: "Extra aandacht voor reinheid, voeding en islamitische gewoonten. Islamitische kraamzorg die volledig past bij uw geloof en levensstijl.",
   },
   {
     icon: <IconHeart />,
