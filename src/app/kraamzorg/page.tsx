@@ -30,7 +30,7 @@ const kernpunten = [
   {
     icon: <IconMoon />,
     title: "Respect voor jouw geloof",
-    text: "Jouw islamitische waarden staan centraal. Van gebedsondersteuning en halal voeding tot de adhan voor je baby.",
+    text: "Jouw islamitische waarden staan centraal. Van halal voeding tot de adhan voor je baby.",
   },
   {
     icon: <IconHome />,
@@ -65,7 +65,7 @@ const faqs = [
   },
   {
     q: "Wat is het verschil met reguliere kraamzorg?",
-    a: "Mijn zorg is volledig afgestemd op islamitische waarden: gebedsondersteuning, halal voeding, adhan en rituele reinheid. Ik ben zelf moslima en begrijp wat voor jou belangrijk is.",
+    a: "Mijn zorg is volledig afgestemd op islamitische waarden: halal voeding, adhan en rituele reinheid. Ik ben zelf moslima en begrijp wat voor jou belangrijk is.",
   },
   {
     q: "Kun je ook in mijn plaats in Utrecht komen?",
