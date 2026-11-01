@@ -21,6 +21,7 @@ export const site = {
   phoneLink: "tel:+31634426489",
   whatsapp: "https://wa.me/31634426489",
   email: "info@deislamitischekraamzorg.nl",
+  formspreeEndpoint: "https://formspree.io/f/xjykeqvz",
   facebook: "https://www.facebook.com/share/1Ef8FCwy7t/",
   location: "Utrecht",
   address: {
