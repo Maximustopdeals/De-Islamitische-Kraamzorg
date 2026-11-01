@@ -37,6 +37,11 @@ const kernpunten = [
     title: "Zorg in je eigen thuis",
     text: "Alle zorg vindt plaats in de vertrouwde omgeving van je eigen huis. Zo voel jij je helemaal op je gemak.",
   },
+  {
+    icon: <IconHeart />,
+    title: "Ontbijt & lunch",
+    text: "Ik zorg voor eenvoudige maaltijden zoals brood, beleg en fruit. Warme maaltijden vallen niet onder kraamzorg volgens de verzekering.",
+  },
 ];
 
 const stappen = [
@@ -58,6 +63,10 @@ const faqs = [
   {
     q: "Wordt jouw zorg vergoed door de verzekering?",
     a: "Ja, kraamzorg wordt standaard vergoed vanuit de basisverzekering. Je betaalt alleen een eigen bijdrage van €5,70 per uur voor zorg thuis. Met een aanvullende verzekering kan deze eigen bijdrage (gedeeltelijk) worden vergoed.",
+  },
+  {
+    q: "Kook je ook warme maaltijden?",
+    a: "Nee. Warme maaltijden bereiden valt niet onder kraamzorg volgens de verzekering. Ik zorg wel voor ontbijt & lunch: eenvoudige maaltijden zoals brood, beleg en fruit. Zo weet je vooraf precies waar je op kunt rekenen.",
   },
   {
     q: "Hoe weet ik of ik bij jou kan aanmelden?",
@@ -168,7 +177,7 @@ export default function Kraamzorg() {
               persoonlijke situatie en geloof.
             </p>
           </div>
-          <div className="grid grid--3">
+          <div className="grid grid--4">
             {kernpunten.map((k, i) => (
               <Reveal key={k.title} delay={i * 0.1}>
                 <div className="card">
